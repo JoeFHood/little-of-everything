@@ -1,0 +1,62 @@
+<!--   GOOD EXAMPLE OF LOADING A TABLE FROM A FILE -->
+<!--   ALTHOUGH IT NEEDS WORK AND A LOT OT TESTING TO BE USED IT IS VERY ROUGH -->
+<!--   LAST REVIEWED 9/29/2024. -->
+
+
+<!DOCTYPE html>
+<html>
+
+<title>File Report Table</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #dd0;
+        }
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+
+<body>
+  <h2>Load Table from Local File</h2>
+  <input type="file" id="fileInput"><br><br>
+  <table id="data-table" border="1"></table>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function () {
+        const lines = reader.result.trim().split('\n');
+        const table = document.getElementById('data-table');
+        table.innerHTML = '';
+        lines.forEach((line, index) => {
+          const row = document.createElement('tr');
+          line.split(',').forEach(cell => {
+            const cellElem = document.createElement(index === 0 ? 'th' : 'td');
+            cellElem.textContent = cell.trim();
+            row.appendChild(cellElem);
+          });
+          table.appendChild(row);
+        });
+      };
+      reader.readAsText(file);
+    });
+  </script>
+
+</body>
+
+</html>

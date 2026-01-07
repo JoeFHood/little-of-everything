@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Display How To Python Items</title>
+</head>
+<body>
+
+<button onclick="window.location.replace('test3.html')">
+Next Screen</button>
+
+
+</script>
+<button onclick="changeIframeContent()">Notes To Self</button>
+<button onclick="changeIframeContent2()">Family List</button>
+<button onclick="changeIframeContent3()">Find Path</button>
+<button onclick="changeIframeContent4()">Screencopy</button>
+<center>
+<iframe id="myIframe" style="border:4px solid #3cb371;" src="/Users/joehood/Desktop/MISC STUFF folder/paper for web.txt" width="1000" height="675"></iframe>
+<left>
+
+<script>
+function changeIframeContent() {
+  const iframe = document.getElementById('myIframe');
+  iframe.src = 'notes to self.txt'; 
+}
+</script>
+<script>
+function changeIframeContent2() {
+  const iframe = document.getElementById('myIframe');
+  iframe.src = '/Users/joehood/Library/Mobile Documents/iCloud~com~omz-software~Pythonista3/Documents/JoePrograms/output.txt'; 
+}
+</script>
+<script>
+function changeIframeContent3() {
+  const iframe = document.getElementById('myIframe');
+  iframe.src = 'change 3.txt'; 
+}
+</script>
+<script>
+function changeIframeContent4() {
+  const iframe = document.getElementById('myIframe');
+  // You can change this to any valid path to your new file
+  iframe.src = '/Users/joehood/Desktop/MISC STUFF folder/Screenshot 2025-08-30 at 7.31.45 AM.png'; 
+}
+</script>
+
+
+
+</body>
+</html>
